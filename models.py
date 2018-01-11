@@ -39,7 +39,10 @@ class Session(db.Model):
     __tablename__ = 'session'
 
     session_key = db.Column(db.String(SESSION_KEY_LIMIT), primary_key=True)
+    # node_key is deprecated: provider_id should be used instead
     node_key = db.Column(db.String(NODE_KEY_LIMIT))
+    provider_id = db.Column(db.String(NODE_KEY_LIMIT))
+    consumer_id = db.Column(db.String(NODE_KEY_LIMIT))
     created_at = db.Column(db.DateTime)
     node_updated_at = db.Column(db.DateTime)
     client_updated_at = db.Column(db.DateTime)
